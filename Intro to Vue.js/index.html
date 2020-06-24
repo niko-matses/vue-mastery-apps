@@ -30,10 +30,13 @@
                     <li v-for="size in sizes">{{size}}</li>
                 </ul>
                 <h3>Colors:</h3>
-                <ul>
-                    <li v-for="variant in variants" :key="variant.variantId">{{ variant.variantColor }}</li>
-                </ul>
 
+                <div v-for="variant in variants" :key="variant.variantId">
+                    <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+                </div>
+
+                <button v-on:click="addToCart" class="cart">Add to Cart</button>
+                <div class="cart">Cart({{cart}})</div>
             </div>
         </div>
     </div>

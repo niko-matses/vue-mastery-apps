@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
+    <div class="nav-bar"></div>
     <div id="app">
-        <h1>{{product}}</h1>
-        <p>{{description}}</p>
+        <div class="product">
+            <div class="product-image">
+                <img v-bind:src="image" alt="description" />
+            </div>
+            <div class="product-info">
+                <p v-if="inventory > 10">In Stock</p>
+                <p v-else-if="inventory<= 10 && inventory > 0">In Stock</p>
+                <p v-else>Out of Stock</p>
+                <h1>{{product}}</h1>
+                <p>{{description}}</p>
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="main.js"></script>
 
 </body>
+
 </html>

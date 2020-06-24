@@ -5,6 +5,7 @@ var app = new Vue({
         description: 'These are the dryest socks and they keep your feet warm too',
         image: './assets/vmSocks-green-onWhite.jpg',
         inventory: 8,
+        inStock: true,
         onSale: true,
         details: ["80% cotton", "20% polyester", "Gender-neutral"],
         sizes: ["small", "medium", "large"],
@@ -25,6 +26,9 @@ var app = new Vue({
     methods: {
         addToCart() {
             this.cart += 1
+        },
+        removeFromCart() {
+            this.cart -= 1
         },
         updateProduct: function (variantImage) {
             this.image = variantImage

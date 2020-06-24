@@ -16,11 +16,24 @@
                 <img v-bind:src="image" alt="description" />
             </div>
             <div class="product-info">
-                <p v-if="inventory > 10">In Stock</p>
-                <p v-else-if="inventory<= 10 && inventory > 0">In Stock</p>
-                <p v-else>Out of Stock</p>
+                <strong v-show="onSale">ON SALE!</strong>
                 <h1>{{product}}</h1>
+                <p v-if="inventory > 10">In Stock</p>
+                <p v-else-if="inventory<= 10 && inventory > 0">Almost Out of Stock</p>
+                <p v-else>Out of Stock</p>
                 <p>{{description}}</p>
+                <ul>
+                    <li v-for="detail in details">{{detail}}</li>
+                </ul>
+                <h3>Sizes:</h3>
+                <ul>
+                    <li v-for="size in sizes">{{size}}</li>
+                </ul>
+                <h3>Colors:</h3>
+                <ul>
+                    <li v-for="variant in variants" :key="variant.variantId">{{ variant.variantColor }}</li>
+                </ul>
+
             </div>
         </div>
     </div>
